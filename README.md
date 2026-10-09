@@ -7,8 +7,8 @@ End-to-end retail data pipeline: raw CSVs → Postgres (Neon) → CDC ingestion 
 ```
 walmart_dataset/        Source CSVs + DDL for the raw Postgres schema
 scripts/                load_raw.data.py – loads CSVs into Postgres `raw.*` tables
-Walmart_dbt/            dbt project (walmart_proj_dbt) for local development
-airflow-docker/         Airflow (Docker Compose) + DAGs + the dbt project it runs
+Walmart_dbt/            dbt project (walmart_proj_dbt); also mounted into the Airflow containers
+airflow-docker/         Airflow (Docker Compose) + DAGs
   dags/orchestrator.py  CDC job → source freshness → silver_t → silver_b → gold
 ```
 

@@ -2,6 +2,11 @@ sources:
     - name: walmart_dbt
       database: walmart
       schema: bronze
+      description: "Source schema for Walmart data in the bronze layer"
+      freshness:
+        warn_after: {count: 30, period: day}
+        error_after: {count: 365, period: day}
+      loaded_at_field: "updated_timestamp"
       tables:
         - name: customers
         - name: orders
@@ -9,4 +14,6 @@ sources:
         - name: order_items
         - name: stores
         - name: employees
+    
+
         
